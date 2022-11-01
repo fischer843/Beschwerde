@@ -1,0 +1,66 @@
+\documentclass[paper=a4, onesite]{scrreprt}
+
+\usepackage[ngerman]{babel}
+
+\usepackage{acronym}
+
+\usepackage{pdfpages}
+
+\usepackage{enumitem}
+
+
+
+
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\fancypagestyle{pdfpages}{
+	\fancyhf{}
+	\fancyhead[L]{\pdfpagesheaderleft}
+	\fancyhead[C]{\pdfpagesheadercenter}
+	\fancyhead[R]{\pdfpagesheaderright}
+}
+\newcommand*\pdfpagesheaderleft{}
+\newcommand*\pdfpagesheadercenter{}
+\newcommand*\pdfpagesheaderright{}
+
+\newcommand{\setlayout}[3]{\thispagestyle{pdfpages}%
+	\gdef\pdfpagesheaderleft{#1}%
+	\gdef\pdfpagesheadercenter{#2}%
+	\gdef\pdfpagesheaderright{#3}%
+}
+
+\setlength{\parindent}{0em}
+
+
+\newcounter{rz}
+\newcommand{\Rz}{\addtocounter{rz}{1}\marginpar{\texttt{(\textit{\arabic{rz}})}}}
+
+\usepackage{csquotes}
+
+\usepackage[backend=biber,style=alphabetic,urldate=iso8601,date=iso8601]{biblatex}
+\addbibresource{BeschwerdeAnhang.bib}
+
+
+
+\title{Beschwerde}
+
+
+\begin{document}
+
+\includepdf[pages={1}, pagecommand=\setlayout{\textbf{Anlage 1 \cite{CouvertKG}- Brief mit Hinweis weitere Beschulung}}{}{}, scale=0.8, frame=true]{Anhang/CouvertKG}
+
+
+\includepdf[pages={1,2}, pagecommand=\setlayout{\textbf{Anlage 1 \cite{ST100621}- Brief mit Hinweis weitere Beschulung}}{}{}, scale=0.8, frame=true]{Anhang/HinweisWeitereBeschulung}
+
+\includepdf[pages={1}, pagecommand=\setlayout{\textbf{Anlage X - Bewilligung bis Ende Sekundarstufe I}}{}{}, scale=0.8, frame=true]{Anhang/Bew11082022}
+
+
+
+\includepdf[pages={1,2,3,4,5}, pagecommand=\setlayout{\textbf{Anlage 2 - Verfügung des Regierungsrats vom 27. September 2022}}{}{}, scale=0.8, frame=true]{Anhang/Entscheid}
+
+\includepdf[pages={1,2,3,4,5}, pagecommand=\setlayout{\textbf{Anlage 3 - Beschwerde an Kantonsgericht vom 07. Oktober 2022}}{}{}, scale=0.8, frame=true]{Anhang/Simple2Beschwerde2022Nr1462}
+
+
+\end{document}
